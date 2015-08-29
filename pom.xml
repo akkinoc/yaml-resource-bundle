@@ -143,6 +143,14 @@
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>2.5</version>
             </plugin>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+                <configuration>
+                    <show>private</show>
+                    <quiet>true</quiet>
+                </configuration>
+            </plugin>
         </plugins>
     </reporting>
 

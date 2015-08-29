@@ -62,7 +62,8 @@ public class YamlResourceBundle extends ResourceBundle {
     /**
      * Flatten yaml tree structure.
      *
-     * @return Entries.
+     * @param tree Map of yaml tree.
+     * @return Map of entries.
      */
     private Map<String, Object> flattenYamlTree(Map<?, ?> tree) {
         Map<String, Object> result = new HashMap<>();
