@@ -331,6 +331,17 @@ public class YamlResourceBundleTest {
      * Test of {@link YamlResourceBundle.Control#newBundle(String, Locale, String, ClassLoader, boolean)}.
      */
     @Test
+    public void control_newBundle_GetBundleYamlOnly() {
+        YamlResourceBundle.Control control = YamlResourceBundle.Control.INSTANCE;
+        ResourceBundle resourceBundle = ResourceBundle.getBundle(
+                RESOURCE_PREFIX + "GetBundleYamlOnly", control);
+        assertThat(resourceBundle.getString("a")).isEqualTo("x");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle.Control#newBundle(String, Locale, String, ClassLoader, boolean)}.
+     */
+    @Test
     public void control_newBundle_GetBundleYmlOnly() {
         YamlResourceBundle.Control control = YamlResourceBundle.Control.INSTANCE;
         ResourceBundle resourceBundle = ResourceBundle.getBundle(
