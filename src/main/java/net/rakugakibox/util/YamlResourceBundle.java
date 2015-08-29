@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import static java.util.stream.Collectors.toMap;
 import java.util.stream.Stream;
 
@@ -92,6 +93,12 @@ public class YamlResourceBundle extends ResourceBundle {
         } else if (value instanceof List) {
             List<?> valueAsList = (List<?>) value;
             value = valueAsList.stream().toArray(String[]::new);
+            AtomicInteger index = new AtomicInteger();
+            return Stream.concat(
+                    Stream.of(new SimpleImmutableEntry<>(key, value)),
+                    valueAsList.stream()
+                            .map(v -> new SimpleImmutableEntry<>(key + "[" + index.getAndIncrement() + "]", v))
+            );
         }
         return Stream.of(new SimpleImmutableEntry<>(key, value));
     }

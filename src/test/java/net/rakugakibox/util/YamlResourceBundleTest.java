@@ -168,7 +168,22 @@ public class YamlResourceBundleTest {
                 .append("  - y\n")
                 .toString();
         YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
-        assertThat(resourceBundle.handleKeySet()).containsOnly("a");
+        assertThat(resourceBundle.handleKeySet()).containsOnly("a", "a[0]", "a[1]");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle#handleKeySet()}.
+     */
+    @Test
+    public void handleKeySet_GetNestedArrayKeySet() {
+        String string = new StringBuilder()
+                .append("a:\n")
+                .append("  b:\n")
+                .append("    - x\n")
+                .append("    - y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(resourceBundle.handleKeySet()).containsOnly("a.b", "a.b[0]", "a.b[1]");
     }
 
     /**
@@ -222,6 +237,26 @@ public class YamlResourceBundleTest {
         YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
         assertThat(resourceBundle.handleGetObject("a")).isInstanceOf(String[].class);
         assertThat((String[]) resourceBundle.handleGetObject("a")).containsExactly("x", "y");
+        assertThat(resourceBundle.handleGetObject("a[0]")).isEqualTo("x");
+        assertThat(resourceBundle.handleGetObject("a[1]")).isEqualTo("y");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle#handleGetObject(String)}.
+     */
+    @Test
+    public void handleGetObject_GetNestedStringArray() {
+        String string = new StringBuilder()
+                .append("a:\n")
+                .append("  b:\n")
+                .append("    - x\n")
+                .append("    - y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(resourceBundle.handleGetObject("a.b")).isInstanceOf(String[].class);
+        assertThat((String[]) resourceBundle.handleGetObject("a.b")).containsExactly("x", "y");
+        assertThat(resourceBundle.handleGetObject("a.b[0]")).isEqualTo("x");
+        assertThat(resourceBundle.handleGetObject("a.b[1]")).isEqualTo("y");
     }
 
     /**
