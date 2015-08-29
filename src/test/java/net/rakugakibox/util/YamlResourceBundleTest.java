@@ -159,6 +159,33 @@ public class YamlResourceBundleTest {
      * Test of {@link YamlResourceBundle#handleGetObject(String)}.
      */
     @Test
+    public void handleGetObject_OverrideIfKeyIsDuplicate() {
+        String string = new StringBuilder()
+                .append("a: x\n")
+                .append("a: y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(resourceBundle.handleGetObject("a")).isEqualTo("y");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle#handleGetObject(String)}.
+     */
+    @Test
+    public void handleGetObject_OverrideIfNestedKeyIsDuplicate() {
+        String string = new StringBuilder()
+                .append("a.b: x\n")
+                .append("a:\n")
+                .append("  b: y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(resourceBundle.handleGetObject("a.b")).isEqualTo("y");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle#handleGetObject(String)}.
+     */
+    @Test
     public void handleGetObject_KeyIsRequired() {
         String string = new StringBuilder()
                 .append("a: x\n")
