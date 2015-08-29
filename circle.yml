@@ -11,3 +11,8 @@ dependencies:
 test:
   override:
     - "mvn clean install site"
+
+general:
+  artifacts:
+    - "target/*.jar"
+    - "target/site"
