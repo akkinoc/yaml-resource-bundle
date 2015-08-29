@@ -32,6 +32,11 @@
         <system>GitHub Issues</system>
     </issueManagement>
 
+    <ciManagement>
+        <system>CircleCI</system>
+        <url>https://circleci.com/gh/akihyro/yaml-resource-bundle</url>
+    </ciManagement>
+
     <developers>
         <developer>
             <id>akihyro</id>
