@@ -131,6 +131,60 @@ public class YamlResourceBundleTest {
     }
 
     /**
+     * Test of {@link YamlResourceBundle#handleKeySet()}.
+     */
+    @Test
+    public void handleKeySet_GetKeySet() {
+        String string = new StringBuilder()
+                .append("a: x\n")
+                .append("b: y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(resourceBundle.handleKeySet()).containsOnly("a", "b");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle#handleKeySet()}.
+     */
+    @Test
+    public void handleKeySet_GetNestedKeySet() {
+        String string = new StringBuilder()
+                .append("a:\n")
+                .append("  b: x\n")
+                .append("  c: y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(resourceBundle.handleKeySet()).containsOnly("a.b", "a.c");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle#handleKeySet()}.
+     */
+    @Test
+    public void handleKeySet_GetArrayKeySet() {
+        String string = new StringBuilder()
+                .append("a:\n")
+                .append("  - x\n")
+                .append("  - y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(resourceBundle.handleKeySet()).containsOnly("a");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle#getKeys()}.
+     */
+    @Test
+    public void getKeys_CallHandleKeySet() {
+        String string = new StringBuilder()
+                .append("a: x\n")
+                .append("b: y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(list(resourceBundle.getKeys())).containsOnly("a", "b");
+    }
+
+    /**
      * Test of {@link YamlResourceBundle#handleGetObject(String)}.
      */
     @Test
@@ -153,6 +207,21 @@ public class YamlResourceBundleTest {
                 .toString();
         YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
         assertThat(resourceBundle.handleGetObject("a.b")).isEqualTo("x");
+    }
+
+    /**
+     * Test of {@link YamlResourceBundle#handleGetObject(String)}.
+     */
+    @Test
+    public void handleGetObject_GetStringArray() {
+        String string = new StringBuilder()
+                .append("a:\n")
+                .append("  - x\n")
+                .append("  - y\n")
+                .toString();
+        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
+        assertThat(resourceBundle.handleGetObject("a")).isInstanceOf(String[].class);
+        assertThat((String[]) resourceBundle.handleGetObject("a")).containsExactly("x", "y");
     }
 
     /**
@@ -192,100 +261,6 @@ public class YamlResourceBundleTest {
                 .toString();
         YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
         assertThatThrownBy(() -> resourceBundle.handleGetObject(null)).isInstanceOf(NullPointerException.class);
-    }
-
-    /**
-     * Test of {@link YamlResourceBundle#handleKeySet()}.
-     */
-    @Test
-    public void handleKeySet_GetKeySet() {
-        String string = new StringBuilder()
-                .append("a: x\n")
-                .append("b: y\n")
-                .toString();
-        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
-        assertThat(resourceBundle.handleKeySet()).containsOnly("a", "b");
-    }
-
-    /**
-     * Test of {@link YamlResourceBundle#handleKeySet()}.
-     */
-    @Test
-    public void handleKeySet_GetNestedKeySet() {
-        String string = new StringBuilder()
-                .append("a:\n")
-                .append("  b: x\n")
-                .append("  c: y\n")
-                .toString();
-        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
-        assertThat(resourceBundle.handleKeySet()).containsOnly("a.b", "a.c");
-    }
-
-    /**
-     * Test of {@link YamlResourceBundle#getKeys()}.
-     */
-    @Test
-    public void getKeys_GetKeys() {
-        String string = new StringBuilder()
-                .append("a: x\n")
-                .append("b: y\n")
-                .toString();
-        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
-        assertThat(list(resourceBundle.getKeys())).containsOnly("a", "b");
-    }
-
-    /**
-     * Test of {@link YamlResourceBundle#getKeys()}.
-     */
-    @Test
-    public void getKeys_GetNestedKeys() {
-        String string = new StringBuilder()
-                .append("a:\n")
-                .append("  b: x\n")
-                .append("  c: y\n")
-                .toString();
-        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
-        assertThat(list(resourceBundle.getKeys())).containsOnly("a.b", "a.c");
-    }
-
-    /**
-     * Test of {@link YamlResourceBundle#getString(String)}.
-     */
-    @Test
-    public void getString_GetString() {
-        String string = new StringBuilder()
-                .append("a: x\n")
-                .toString();
-        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
-        assertThat(resourceBundle.getString("a")).isEqualTo("x");
-    }
-
-    /**
-     * Test of {@link YamlResourceBundle#getString(String)}.
-     */
-    @Test
-    public void getString_GetNestedString() {
-        String string = new StringBuilder()
-                .append("a:\n")
-                .append("  b: x\n")
-                .toString();
-        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
-        assertThat(resourceBundle.getString("a.b")).isEqualTo("x");
-    }
-
-    /**
-     * Test of {@link YamlResourceBundle#getStringArray(String)}.
-     */
-    @Test
-    public void getStringArray_GetStringArray() {
-        String string = new StringBuilder()
-                .append("a: \n")
-                .append("  - x\n")
-                .append("  - y\n")
-                .append("  - z\n")
-                .toString();
-        YamlResourceBundle resourceBundle = new YamlResourceBundle(string);
-        assertThat(resourceBundle.getStringArray("a")).containsExactly("x", "y", "z");
     }
 
     /**

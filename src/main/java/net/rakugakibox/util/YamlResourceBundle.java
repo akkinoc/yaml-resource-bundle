@@ -98,12 +98,6 @@ public class YamlResourceBundle extends ResourceBundle {
 
     /** {@inheritDoc} */
     @Override
-    protected Object handleGetObject(@NonNull String key) {
-        return entries.get(key);
-    }
-
-    /** {@inheritDoc} */
-    @Override
     protected Set<String> handleKeySet() {
         return entries.keySet();
     }
@@ -112,6 +106,12 @@ public class YamlResourceBundle extends ResourceBundle {
     @Override
     public Enumeration<String> getKeys() {
         return enumeration(keySet());
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    protected Object handleGetObject(@NonNull String key) {
+        return entries.get(key);
     }
 
     /**
