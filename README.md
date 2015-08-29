@@ -24,13 +24,10 @@ colors:
 ```java
 import java.util.ResourceBundle;
 import net.rakugakibox.util.YamlResourceBundle;
-import org.junit.Test;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class YamlResourceBundleExample {
 
-    @Test
-    public void example() {
+    public static void main(String[] args) {
 
         // Specify the "YamlResourceBundle.Control.INSTANCE" to "ResourceBundle.Control".
         ResourceBundle r = ResourceBundle.getBundle(
@@ -39,23 +36,25 @@ public class YamlResourceBundleExample {
         );
 
         // Support the "ResourceBundle#getString(String)" for yaml string.
-        assertThat(r.getString("fruits.apple")).isEqualTo("Apple");
-        assertThat(r.getString("fruits.orange")).isEqualTo("Orange");
-        assertThat(r.getString("fruits.grape")).isEqualTo("Grape");
+        System.out.println(r.getString("fruits.apple"));    // => "Apple"
+        System.out.println(r.getString("fruits.orange"));   // => "Orange"
+        System.out.println(r.getString("fruits.grape"));    // => "Grape"
 
         // Support the "ResourceBundle#getString(String)" for yaml array.
-        assertThat(r.getString("colors[0]")).isEqualTo("Red");
-        assertThat(r.getString("colors[1]")).isEqualTo("Orange");
-        assertThat(r.getString("colors[2]")).isEqualTo("Purple");
+        System.out.println(r.getString("colors[0]"));       // => "Red"
+        System.out.println(r.getString("colors[1]"));       // => "Orange"
+        System.out.println(r.getString("colors[2]"));       // => "Purple"
 
         // Support the "ResourceBundle#getStringArray(String)".
-        assertThat(r.getStringArray("colors")).containsExactly("Red", "Orange", "Purple");
+        for (String s : r.getStringArray("colors")) {
+            System.out.println(s);
+        }       // => "Red", "Orange", "Purple"
 
         // Support the "ResourceBundle#keySet()".
-        assertThat(r.keySet()).containsOnly(
-                "fruits.apple", "fruits.orange", "fruits.grape",
-                "colors[0]", "colors[1]", "colors[2]", "colors"
-        );
+        for (String s: r.keySet()) {
+            System.out.println(s);
+        }       // => "fruits.apple", "fruits.orange", "fruits.grape",
+                //    "colors[0]", "colors[1]", "colors[2]", "colors" (not sorted)
 
     }
 
