@@ -1,0 +1,8 @@
+fruits:
+  apple: Apple
+  orange: Orange
+  grape: Grape
+colors:
+  - Red
+  - Orange
+  - Purple
