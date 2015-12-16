@@ -1,10 +1,26 @@
-YamlResourceBundle [![Circle CI](https://circleci.com/gh/akihyro/yaml-resource-bundle.png?circle-token=432a2297d85d3ce3fc7a3610605976851b227fee)](https://circleci.com/gh/akihyro/yaml-resource-bundle)
-=======================================================================================================================================================================================================
+YamlResourceBundle
+==================
 
 Java ResourceBundle for YAML format.
 
+Status
+------
+
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.rakugakibox.util/yaml-resource-bundle/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.rakugakibox.util/yaml-resource-bundle)
+[![Circle CI](https://circleci.com/gh/akihyro/yaml-resource-bundle.svg?style=shield)](https://circleci.com/gh/akihyro/yaml-resource-bundle)
+
 Usage
 -----
+
+### Maven dependency:
+
+```xml
+<dependency>
+    <groupId>net.rakugakibox.util</groupId>
+    <artifactId>yaml-resource-bundle</artifactId>
+    <version>1.1</version>
+</dependency>
+```
 
 ### YAML file (example.yaml):
 
