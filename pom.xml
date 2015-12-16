@@ -13,6 +13,11 @@
     <description>Java ResourceBundle for YAML format.</description>
     <url>https://github.com/akihyro/yaml-resource-bundle</url>
 
+    <organization>
+        <name>rakugakibox.net</name>
+        <url>http://rakugakibox.net</url>
+    </organization>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
