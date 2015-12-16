@@ -6,6 +6,7 @@ Java ResourceBundle for YAML format.
 Status
 ------
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.rakugakibox.util/yaml-resource-bundle/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.rakugakibox.util/yaml-resource-bundle)
 [![Circle CI](https://circleci.com/gh/akihyro/yaml-resource-bundle.svg?style=shield)](https://circleci.com/gh/akihyro/yaml-resource-bundle)
 
 Usage
