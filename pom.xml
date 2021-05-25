@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.rakugakibox.util</groupId>
     <artifactId>yaml-resource-bundle</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <packaging>jar</packaging>
 
     <name>yaml-resource-bundle</name>
