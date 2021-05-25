@@ -18,7 +18,7 @@ Usage
 <dependency>
     <groupId>net.rakugakibox.util</groupId>
     <artifactId>yaml-resource-bundle</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
 </dependency>
 ```
 
