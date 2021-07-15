@@ -1,30 +1,66 @@
-YamlResourceBundle
-==================
+# yaml-resource-bundle
 
-Java ResourceBundle for YAML format.
+[![maven central][maven central badge]][maven central]
+[![javadoc][javadoc badge]][javadoc]
+[![build][build badge]][build]
+[![codecov][codecov badge]][codecov]
+[![license][license badge]][license]
 
-Status
-------
+[maven central badge]: https://maven-badges.herokuapp.com/maven-central/dev.akkinoc.util/yaml-resource-bundle/badge.svg
+[maven central]: https://maven-badges.herokuapp.com/maven-central/dev.akkinoc.util/yaml-resource-bundle
+[javadoc badge]: https://javadoc.io/badge2/dev.akkinoc.util/yaml-resource-bundle/javadoc.svg
+[javadoc]: https://javadoc.io/doc/dev.akkinoc.util/yaml-resource-bundle
+[build badge]: https://github.com/akkinoc/yaml-resource-bundle/actions/workflows/build.yml/badge.svg
+[build]: https://github.com/akkinoc/yaml-resource-bundle/actions/workflows/build.yml
+[codecov badge]: https://codecov.io/gh/akkinoc/yaml-resource-bundle/branch/main/graph/badge.svg
+[codecov]: https://codecov.io/gh/akkinoc/yaml-resource-bundle
+[license badge]: https://img.shields.io/badge/license-Apache%202.0-blue
+[license]: LICENSE.txt
 
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.rakugakibox.util/yaml-resource-bundle/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.rakugakibox.util/yaml-resource-bundle)
-[![Circle CI](https://circleci.com/gh/akihyro/yaml-resource-bundle.svg?style=shield)](https://circleci.com/gh/akihyro/yaml-resource-bundle)
+[Java ResourceBundle] for YAML format.  
 
-Usage
------
+[Java ResourceBundle]: https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 
-### Maven dependency:
+## Features
+
+* Accesses YAML-formatted resources via ResourceBundle.
+* Supports locale-specific resources according to the ResourceBundle specification.
+* Supports YAML values nested in maps or lists.
+* Supports multiple YAML documents separated by "---".
+
+## Dependency versions
+
+Supports the following dependency versions.  
+Other versions might also work, but we have not tested it.  
+
+* Java 8, 11, 15
+* Kotlin 1.5
+* SnakeYAML 1.29
+
+## Usage
+
+### Adding the dependency
+
+The artifact is published on Maven Central Repository.  
+If you are using Maven, add the following dependency.  
 
 ```xml
 <dependency>
-    <groupId>net.rakugakibox.util</groupId>
+    <groupId>dev.akkinoc.util</groupId>
     <artifactId>yaml-resource-bundle</artifactId>
-    <version>1.2</version>
+    <version>${yaml-resource-bundle.version}</version>
 </dependency>
 ```
 
-### YAML file (example.yaml):
+### Creating a resource file
+
+Create a resource file in YAML format on the classpath.  
+Also, create locale-specific resource files as needed.  
+
+For example:  
 
 ```yaml
+# resource.yml, resource_en.yml, resource_fr.yml, etc
 fruits:
   apple: Apple
   orange: Orange
@@ -35,49 +71,76 @@ colors:
   - Purple
 ```
 
-### Java code:
+### Accessing the resource
+
+Access the resource via YamlResourceBundle.  
+
+For example in Java:  
 
 ```java
+import dev.akkinoc.util.YamlResourceBundle;
+import static java.lang.System.out;
+import static java.util.Arrays.asList;
 import java.util.ResourceBundle;
-import net.rakugakibox.util.YamlResourceBundle;
 
-public class YamlResourceBundleExample {
+public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
 
-        // Specify the "YamlResourceBundle.Control.INSTANCE" to "ResourceBundle.Control".
-        ResourceBundle r = ResourceBundle.getBundle(
-                "net.rakugakibox.util.YamlResourceBundleExample.example",
-                YamlResourceBundle.Control.INSTANCE
-        );
+        // Gets the resource bundle
+        // Specify "YamlResourceBundle.Control.INSTANCE" for "ResourceBundle.Control"
+        ResourceBundle bundle = ResourceBundle.getBundle(
+                "resource", YamlResourceBundle.Control.INSTANCE);
 
-        // Support the "ResourceBundle#getString(String)" for yaml string.
-        System.out.println(r.getString("fruits.apple"));    // => "Apple"
-        System.out.println(r.getString("fruits.orange"));   // => "Orange"
-        System.out.println(r.getString("fruits.grape"));    // => "Grape"
+        // Gets the map values
+        out.println(bundle.getString("fruits.apple"));   // => "Apple" or a localized value
+        out.println(bundle.getString("fruits.orange"));  // => "Orange" or a localized value
+        out.println(bundle.getString("fruits.grape"));   // => "Grape" or a localized value
 
-        // Support the "ResourceBundle#getString(String)" for yaml array.
-        System.out.println(r.getString("colors[0]"));       // => "Red"
-        System.out.println(r.getString("colors[1]"));       // => "Orange"
-        System.out.println(r.getString("colors[2]"));       // => "Purple"
+        // Gets the list values
+        out.println(bundle.getString("colors[0]"));      // => "Red" or a localized value
+        out.println(bundle.getString("colors[1]"));      // => "Orange" or a localized value
+        out.println(bundle.getString("colors[2]"));      // => "Purple" or a localized value
 
-        // Support the "ResourceBundle#getStringArray(String)".
-        for (String s : r.getStringArray("colors")) {
-            System.out.println(s);
-        }       // => "Red", "Orange", "Purple"
+        // Gets the list values as an array
+        out.println(asList(bundle.getStringArray("colors")));
+        // => "[Red, Orange, Purple]" or localized values
 
-        // Support the "ResourceBundle#keySet()".
-        for (String s: r.keySet()) {
-            System.out.println(s);
-        }       // => "fruits.apple", "fruits.orange", "fruits.grape",
-                //    "colors[0]", "colors[1]", "colors[2]", "colors" (not sorted)
+        // Gets all the keys
+        out.println(bundle.keySet());
+        // => "[fruits.apple, fruits.orange, fruits.grape,
+        //      colors, colors[0], colors[1], colors[2]]" (not sorted)
 
     }
 
 }
 ```
 
-License
--------
+## Release notes
 
-Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+Please refer to the "[Releases]" page.  
+
+[Releases]: https://github.com/akkinoc/yaml-resource-bundle/releases
+
+## Contributing
+
+[Bug reports] and [pull requests] are welcome :)  
+
+[Bug reports]: https://github.com/akkinoc/yaml-resource-bundle/issues
+[pull requests]: https://github.com/akkinoc/yaml-resource-bundle/pulls
+
+## Building and testing
+
+To build and test, run:  
+
+```console
+$ git clone git@github.com:akkinoc/yaml-resource-bundle.git
+$ cd yaml-resource-bundle
+$ mvn clean install
+```
+
+## License
+
+Licensed under the [Apache License, Version 2.0].  
+
+[Apache License, Version 2.0]: LICENSE.txt
