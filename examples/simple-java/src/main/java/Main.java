@@ -8,7 +8,7 @@ public class Main {
     public static void main(String... args) {
 
         // Gets the resource bundle
-        // Specify "YamlResourceBundle.Control.INSTANCE" for "ResourceBundle.Control"
+        // "YamlResourceBundle.Control" is specified for "ResourceBundle.Control"
         ResourceBundle bundle = ResourceBundle.getBundle(
                 "resource", YamlResourceBundle.Control.INSTANCE);
 
