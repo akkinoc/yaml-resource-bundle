@@ -11,8 +11,7 @@ public class App {
 
         // Gets the resource bundle
         // "YamlResourceBundle.Control" is specified for "ResourceBundle.Control"
-        ResourceBundle bundle = ResourceBundle.getBundle(
-                "resource", YamlResourceBundle.Control.INSTANCE);
+        ResourceBundle bundle = ResourceBundle.getBundle("resource", YamlResourceBundle.Control.INSTANCE);
 
         // Gets the map values
         out.println(bundle.getString("fruits.apple"));   // => "Apple" or a localized value
@@ -30,8 +29,7 @@ public class App {
 
         // Gets all the keys
         out.println(bundle.keySet());
-        // => "[fruits.apple, fruits.orange, fruits.grape,
-        //      colors, colors[0], colors[1], colors[2]]" (not sorted)
+        // => "[fruits.apple, fruits.orange, fruits.grape, colors, colors[0], colors[1], colors[2]]" (not sorted)
 
     }
 
