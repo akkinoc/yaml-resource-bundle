@@ -26,6 +26,7 @@
 * Accesses YAML-formatted resources via ResourceBundle.
 * Supports locale-specific resources according to the ResourceBundle specification.
 * Supports YAML values nested in maps or lists.
+* Supports YAML anchors and aliases indicated by "&" and "*".
 * Supports multiple YAML documents separated by "---".
 
 ## Dependencies

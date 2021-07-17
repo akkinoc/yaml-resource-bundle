@@ -218,6 +218,42 @@ class YamlResourceBundleTest {
     }
 
     @Test
+    fun `handleGetObject - Gets the alias values`() {
+        val docs = """
+            scalar: &SCALAR value @scalar
+            alias-scalar: *SCALAR
+            map: &MAP
+              a: value @map.a
+              b: value @map.b
+            alias-map: *MAP
+            list: &LIST
+              - value @list[0]
+              - value @list[1]
+            alias-list: *LIST
+        """.trimIndent()
+        val bundle = YamlResourceBundle(docs)
+        bundle.keySet()
+                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+                .shouldContainExactlyInAnyOrder(
+                        "scalar", "alias-scalar",
+                        "map.a", "map.b", "alias-map.a", "alias-map.b",
+                        "list", "list[0]", "list[1]", "alias-list", "alias-list[0]", "alias-list[1]"
+                )
+        bundle.getString("scalar").shouldBe("value @scalar")
+        bundle.getString("alias-scalar").shouldBe("value @scalar")
+        bundle.getString("map.a").shouldBe("value @map.a")
+        bundle.getString("map.b").shouldBe("value @map.b")
+        bundle.getString("alias-map.a").shouldBe("value @map.a")
+        bundle.getString("alias-map.b").shouldBe("value @map.b")
+        bundle.getStringArray("list").shouldContainExactly("value @list[0]", "value @list[1]")
+        bundle.getString("list[0]").shouldBe("value @list[0]")
+        bundle.getString("list[1]").shouldBe("value @list[1]")
+        bundle.getStringArray("alias-list").shouldContainExactly("value @list[0]", "value @list[1]")
+        bundle.getString("alias-list[0]").shouldBe("value @list[0]")
+        bundle.getString("alias-list[1]").shouldBe("value @list[1]")
+    }
+
+    @Test
     fun `handleGetObject - Gets the values in multiple documents`() {
         val docs = """
             a: value @a
