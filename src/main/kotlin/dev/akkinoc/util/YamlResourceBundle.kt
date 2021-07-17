@@ -84,30 +84,63 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
          */
         private fun parseDoc(doc: Any): Sequence<Pair<String, Any?>> {
             require(doc is Map<*, *>) { "The root of the YAML document must be a map." }
-            return doc.asSequence().flatMap { parseNode("${it.key}", it.value) }
+            return doc.asSequence().flatMap { (itemKey, itemValue) ->
+                parseNode(key = "$itemKey", value = itemValue, ancestors = emptyList())
+            }
         }
 
         /**
          * Parses the YAML document node.
-         * If the node value is [Map] or [List], process it recursively.
          *
          * @param key The key of the node in the YAML document.
          * @param value The value of the node in the YAML document.
+         * @param ancestors A list of node values from root to parent.
          * @return The resource bundle entries.
          */
-        private fun parseNode(key: String, value: Any?): Sequence<Pair<String, Any?>> = when (value) {
-            is Map<*, *> -> {
-                value.asSequence().flatMap { parseNode("$key.${it.key}", it.value) }
+        private fun parseNode(key: String, value: Any?, ancestors: List<Any>): Sequence<Pair<String, Any?>> {
+            return when (value) {
+                is Map<*, *> -> parseMapNode(key = key, value = value, ancestors = ancestors)
+                is List<*> -> parseListNode(key = key, value = value, ancestors = ancestors)
+                else -> sequenceOf(key to value)
             }
-            is List<*> -> {
-                val strings = value.run {
-                    if (isEmpty()) return@run emptySequence()
-                    val items = map { it as? String ?: return@run emptySequence() }
-                    sequenceOf(key to items.toTypedArray())
-                }
-                strings + value.asSequence().withIndex().flatMap { parseNode("$key[${it.index}]", it.value) }
+        }
+
+        /**
+         * Parses the YAML document map node.
+         *
+         * @param key The key of the node in the YAML document.
+         * @param value The value of the node in the YAML document.
+         * @param ancestors A list of node values from root to parent.
+         * @return The resource bundle entries.
+         */
+        private fun parseMapNode(key: String, value: Map<*, *>, ancestors: List<Any>): Sequence<Pair<String, Any?>> {
+            if (ancestors.any { it === value }) return emptySequence()
+            val path = ancestors + value as Any
+            return value.asSequence().flatMap { (itemKey, itemValue) ->
+                parseNode(key = "$key.$itemKey", value = itemValue, ancestors = path)
             }
-            else -> sequenceOf(key to value)
+        }
+
+        /**
+         * Parses the YAML document list node.
+         *
+         * @param key The key of the node in the YAML document.
+         * @param value The value of the node in the YAML document.
+         * @param ancestors A list of node values from root to parent.
+         * @return The resource bundle entries.
+         */
+        private fun parseListNode(key: String, value: List<*>, ancestors: List<Any>): Sequence<Pair<String, Any?>> {
+            if (ancestors.any { it === value }) return emptySequence()
+            val path = ancestors + value as Any
+            val strings = value.run {
+                if (isEmpty()) return@run emptySequence()
+                val items = map { it as? String ?: return@run emptySequence() }
+                sequenceOf(key to items.toTypedArray())
+            }
+            val items = value.asSequence().flatMapIndexed { itemIndex, itemValue ->
+                parseNode(key = "$key[$itemIndex]", value = itemValue, ancestors = path)
+            }
+            return strings + items
         }
 
     }
