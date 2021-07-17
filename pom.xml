@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.rakugakibox.util</groupId>
     <artifactId>yaml-resource-bundle</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
     <packaging>jar</packaging>
 
     <name>yaml-resource-bundle</name>
@@ -59,6 +59,9 @@
             <id>ossrh</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
+        <relocation>
+            <groupId>dev.akkinoc.util</groupId>
+        </relocation>
     </distributionManagement>
 
     <properties>
