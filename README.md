@@ -28,14 +28,15 @@
 * Supports YAML values nested in maps or lists.
 * Supports multiple YAML documents separated by "---".
 
-## Dependency versions
+## Dependencies
 
-Supports the following dependency versions.  
-Other versions might also work, but we have not tested it.  
+Depends on:  
 
-* Java 8, 11, 15
+* Java 8, 11 or 15
 * Kotlin 1.5
 * SnakeYAML 1.29
+
+Other versions may also work, but have not been tested.  
 
 ## Usage
 
@@ -52,9 +53,9 @@ If you are using Maven, add the following dependency.
 </dependency>
 ```
 
-### Creating a resource file
+### Creating resource files
 
-Create a resource file in YAML format on the classpath.  
+Create a YAML-formatted resource file on the classpath.  
 Also, create locale-specific resource files as needed.  
 
 For example:  
