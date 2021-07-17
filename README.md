@@ -26,8 +26,8 @@
 * Accesses YAML-formatted resources via ResourceBundle.
 * Supports locale-specific resources according to the ResourceBundle specification.
 * Supports YAML values nested in maps or lists.
-* Supports YAML anchors and aliases indicated by "&" and "*".
-* Supports multiple YAML documents separated by "---".
+* Supports YAML anchors and aliases indicated by `&` and `*`.
+* Supports multiple YAML documents separated by `---`.
 
 ## Dependencies
 
@@ -120,7 +120,7 @@ public class Main {
 
 ## Release notes
 
-Please refer to the "[Releases]" page.  
+Please refer to the [Releases] page.  
 
 [Releases]: https://github.com/akkinoc/yaml-resource-bundle/releases
 
