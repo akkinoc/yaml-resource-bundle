@@ -1,9 +1,11 @@
+package example;
+
 import dev.akkinoc.util.YamlResourceBundle;
 import static java.lang.System.out;
 import static java.util.Arrays.asList;
 import java.util.ResourceBundle;
 
-public class Main {
+public class App {
 
     public static void main(String... args) {
 
