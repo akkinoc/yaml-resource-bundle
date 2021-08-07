@@ -1,21 +1,24 @@
 # yaml-resource-bundle
 
-[![maven central][maven central badge]][maven central]
-[![javadoc][javadoc badge]][javadoc]
-[![build][build badge]][build]
-[![codecov][codecov badge]][codecov]
-[![license][license badge]][license]
+[![maven central badge]][maven central]
+[![javadoc badge]][javadoc]
+[![release badge]][release]
+[![build badge]][build]
+[![codecov badge]][codecov]
+[![license badge]][license]
 
-[maven central badge]: https://maven-badges.herokuapp.com/maven-central/dev.akkinoc.util/yaml-resource-bundle/badge.svg
 [maven central]: https://maven-badges.herokuapp.com/maven-central/dev.akkinoc.util/yaml-resource-bundle
-[javadoc badge]: https://javadoc.io/badge2/dev.akkinoc.util/yaml-resource-bundle/javadoc.svg
+[maven central badge]: https://maven-badges.herokuapp.com/maven-central/dev.akkinoc.util/yaml-resource-bundle/badge.svg
 [javadoc]: https://javadoc.io/doc/dev.akkinoc.util/yaml-resource-bundle
-[build badge]: https://github.com/akkinoc/yaml-resource-bundle/actions/workflows/build.yml/badge.svg
+[javadoc badge]: https://javadoc.io/badge2/dev.akkinoc.util/yaml-resource-bundle/javadoc.svg
+[release]: https://github.com/akkinoc/yaml-resource-bundle/releases
+[release badge]: https://img.shields.io/github/v/release/akkinoc/yaml-resource-bundle?color=brightgreen&sort=semver
 [build]: https://github.com/akkinoc/yaml-resource-bundle/actions/workflows/build.yml
-[codecov badge]: https://codecov.io/gh/akkinoc/yaml-resource-bundle/branch/main/graph/badge.svg
+[build badge]: https://github.com/akkinoc/yaml-resource-bundle/actions/workflows/build.yml/badge.svg
 [codecov]: https://codecov.io/gh/akkinoc/yaml-resource-bundle
-[license badge]: https://img.shields.io/badge/license-Apache%202.0-blue
+[codecov badge]: https://codecov.io/gh/akkinoc/yaml-resource-bundle/branch/main/graph/badge.svg
 [license]: LICENSE.txt
+[license badge]: https://img.shields.io/github/license/akkinoc/yaml-resource-bundle?color=blue
 
 [Java ResourceBundle] for YAML format.  
 
@@ -43,7 +46,7 @@ Other versions may also work, but have not been tested.
 
 ### Adding the dependency
 
-The artifact is published on Maven Central Repository.  
+The artifact is published on [Maven Central Repository][maven central].  
 If you are using Maven, add the following dependency.  
 
 ```xml
@@ -118,14 +121,14 @@ public class App {
 }
 ```
 
+## API Reference
+
+Please refer to the [Javadoc][javadoc].  
+
 ## Release notes
 
-Please refer to the [Releases] page.  
-
-[Releases]: https://github.com/akkinoc/yaml-resource-bundle/releases
+Please refer to the [Releases][release] page.  
 
 ## License
 
-Licensed under the [Apache License, Version 2.0].  
-
-[Apache License, Version 2.0]: LICENSE.txt
+Licensed under the [Apache License, Version 2.0][license].  
