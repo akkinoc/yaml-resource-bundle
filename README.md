@@ -124,23 +124,6 @@ Please refer to the [Releases] page.
 
 [Releases]: https://github.com/akkinoc/yaml-resource-bundle/releases
 
-## Contributing
-
-[Bug reports] and [pull requests] are welcome :)  
-
-[Bug reports]: https://github.com/akkinoc/yaml-resource-bundle/issues
-[pull requests]: https://github.com/akkinoc/yaml-resource-bundle/pulls
-
-## Building and testing
-
-To build and test, run:  
-
-```console
-$ git clone git@github.com:akkinoc/yaml-resource-bundle.git
-$ cd yaml-resource-bundle
-$ mvn clean install
-```
-
 ## License
 
 Licensed under the [Apache License, Version 2.0].  
