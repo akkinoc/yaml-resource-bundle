@@ -1,13 +1,22 @@
 # Contributing
 
-[Bug reports] and [pull requests] are welcome :)  
+[![issues badge]][issues]
+[![pulls badge]][pulls]
+[![license badge]][license]
 
-[Bug reports]: https://github.com/akkinoc/yaml-resource-bundle/issues
-[pull requests]: https://github.com/akkinoc/yaml-resource-bundle/pulls
+[issues]: https://github.com/akkinoc/yaml-resource-bundle/issues
+[issues badge]: https://img.shields.io/github/issues/akkinoc/yaml-resource-bundle
+[pulls]: https://github.com/akkinoc/yaml-resource-bundle/pulls
+[pulls badge]: https://img.shields.io/github/issues-pr/akkinoc/yaml-resource-bundle
+[license]: LICENSE.txt
+[license badge]: https://img.shields.io/github/license/akkinoc/yaml-resource-bundle?color=blue
+
+[Bug reports][issues] and [pull requests][pulls] are welcome :)  
+(I may be slow to respond when I'm busy.)  
 
 ## Setup
 
-To setup, run:
+To setup, run:  
 
 ```console
 $ git clone git@github.com:akkinoc/yaml-resource-bundle.git
@@ -24,6 +33,4 @@ $ mvn clean install
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the [Apache License, Version 2.0].  
-
-[Apache License, Version 2.0]: LICENSE.txt
+By contributing, you agree that your contributions will be licensed under the [Apache License, Version 2.0][license].  
