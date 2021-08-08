@@ -1,9 +1,7 @@
 ---
 name: 🐛 Bug report
 about: Create a bug report.
-title:
 labels: type:bug
-assignees: akkinoc
 ---
 
 ## Describe the bug

@@ -1,9 +1,7 @@
 ---
 name: 💡 Feature request
 about: Suggest an idea or a feature.
-title:
 labels: type:enhancement
-assignees: akkinoc
 ---
 
 ## Describe the problem you'd like to have solved
