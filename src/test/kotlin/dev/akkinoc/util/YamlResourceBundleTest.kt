@@ -207,7 +207,7 @@ class YamlResourceBundleTest {
                 .shouldContainExactlyInAnyOrder(bundle.keys.toList())
                 .shouldContainExactlyInAnyOrder(
                         "nested[0]", "nested[0][0]", "nested[0][1]",
-                        "nested[1]", "nested[1][0]", "nested[1][1]"
+                        "nested[1]", "nested[1][0]", "nested[1][1]",
                 )
         bundle.getStringArray("nested[0]").shouldContainExactly("value @nested[0][0]", "value @nested[0][1]")
         bundle.getString("nested[0][0]").shouldBe("value @nested[0][0]")
@@ -237,7 +237,7 @@ class YamlResourceBundleTest {
                 .shouldContainExactlyInAnyOrder(
                         "scalar", "alias-scalar",
                         "map.a", "map.b", "alias-map.a", "alias-map.b",
-                        "list", "list[0]", "list[1]", "alias-list", "alias-list[0]", "alias-list[1]"
+                        "list", "list[0]", "list[1]", "alias-list", "alias-list[0]", "alias-list[1]",
                 )
         bundle.getString("scalar").shouldBe("value @scalar")
         bundle.getString("alias-scalar").shouldBe("value @scalar")
@@ -412,7 +412,7 @@ class YamlResourceBundleTest {
     fun `getBundle - Gets the resource bundle in yaml format`() {
         val bundle = ResourceBundle.getBundle(
                 "${this::class.qualifiedName}.yaml",
-                YamlResourceBundle.Control
+                YamlResourceBundle.Control,
         )
         bundle.getString("yaml").shouldBe("value @yaml")
     }
@@ -421,7 +421,7 @@ class YamlResourceBundleTest {
     fun `getBundle - Gets the resource bundle in yml format`() {
         val bundle = ResourceBundle.getBundle(
                 "${this::class.qualifiedName}.yml",
-                YamlResourceBundle.Control
+                YamlResourceBundle.Control,
         )
         bundle.getString("yml").shouldBe("value @yml")
     }
@@ -430,7 +430,7 @@ class YamlResourceBundleTest {
     fun `getBundle - Prefers the yaml format if yaml and yml formats exist`() {
         val bundle = ResourceBundle.getBundle(
                 "${this::class.qualifiedName}.yaml+yml",
-                YamlResourceBundle.Control
+                YamlResourceBundle.Control,
         )
         bundle.getString("yaml").shouldBe("value @yaml")
         shouldThrow<MissingResourceException> { bundle.getString("yml") }
@@ -441,7 +441,7 @@ class YamlResourceBundleTest {
         val bundle = ResourceBundle.getBundle(
                 "${this::class.qualifiedName}.localized",
                 Locale.JAPAN,
-                YamlResourceBundle.Control
+                YamlResourceBundle.Control,
         )
         bundle.getString("a").shouldBe("value @a (ja_JP)")
         bundle.getString("b").shouldBe("value @b (ja)")
@@ -468,7 +468,7 @@ class YamlResourceBundleTest {
                     Locale.ROOT,
                     "yml",
                     javaClass.classLoader,
-                    false
+                    false,
             )
             bundle.shouldNotBeNull()
             bundle.getString("a").shouldBe("value @a")
@@ -482,7 +482,7 @@ class YamlResourceBundleTest {
                     Locale.JAPAN,
                     "yml",
                     javaClass.classLoader,
-                    false
+                    false,
             )
             bundle.shouldBeNull()
         }
@@ -495,7 +495,7 @@ class YamlResourceBundleTest {
                     Locale.ROOT,
                     "yml",
                     javaClass.classLoader,
-                    true
+                    true,
             )
             bundle.shouldNotBeNull()
             bundle.getString("a").shouldBe("value @a")
@@ -510,7 +510,7 @@ class YamlResourceBundleTest {
                         Locale.getDefault(),
                         "unknown",
                         javaClass.classLoader,
-                        false
+                        false,
                 )
             }
         }

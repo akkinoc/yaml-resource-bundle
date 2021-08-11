@@ -157,7 +157,7 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
                 locale: Locale,
                 format: String,
                 loader: ClassLoader,
-                reload: Boolean
+                reload: Boolean,
         ): ResourceBundle? {
             require(format in getFormats(baseName)) { "Unknown format: $format" }
             val bundleName = toBundleName(baseName, locale)
