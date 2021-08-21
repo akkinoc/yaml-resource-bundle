@@ -250,6 +250,11 @@
                 <dependencies>
                     <dependency>
                         <groupId>io.gitlab.arturbosch.detekt</groupId>
+                        <artifactId>detekt-cli</artifactId>
+                        <version>1.17.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>io.gitlab.arturbosch.detekt</groupId>
                         <artifactId>detekt-formatting</artifactId>
                         <version>1.17.1</version>
                     </dependency>
