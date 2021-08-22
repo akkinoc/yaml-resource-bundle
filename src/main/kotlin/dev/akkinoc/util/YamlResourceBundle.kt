@@ -20,17 +20,17 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
     /**
      * @param docs A string containing the YAML documents.
      */
-    constructor(docs: String) : this(parseDocs(docs))
+    constructor(docs: String) : this(Parser.parseDocs(docs))
 
     /**
      * @param docs An input stream to read the YAML documents.
      */
-    constructor(docs: InputStream) : this(parseDocs(docs))
+    constructor(docs: InputStream) : this(Parser.parseDocs(docs))
 
     /**
      * @param docs A reader to read the YAML documents.
      */
-    constructor(docs: Reader) : this(parseDocs(docs))
+    constructor(docs: Reader) : this(Parser.parseDocs(docs))
 
     override fun getKeys(): Enumeration<String> = enumeration(keySet())
 
@@ -38,7 +38,35 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
 
     override fun handleGetObject(key: String): Any? = entries[key]
 
-    private companion object {
+    /**
+     * [ResourceBundle.Control] for YAML format.
+     */
+    object Control : ResourceBundle.Control() {
+
+        override fun getFormats(baseName: String): List<String> = listOf("yaml", "yml")
+
+        override fun newBundle(
+                baseName: String,
+                locale: Locale,
+                format: String,
+                loader: ClassLoader,
+                reload: Boolean,
+        ): ResourceBundle? {
+            require(format in getFormats(baseName)) { "Unknown format: $format" }
+            val bundleName = toBundleName(baseName, locale)
+            val resourceName = toResourceName(bundleName, format)
+            val resource = loader.getResource(resourceName) ?: return null
+            val connection = resource.openConnection()
+            if (reload) connection.useCaches = false
+            return connection.getInputStream().use { YamlResourceBundle(it) }
+        }
+
+    }
+
+    /**
+     * The YAML documents parser.
+     */
+    private object Parser {
 
         /**
          * Parses the YAML documents.
@@ -46,7 +74,7 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
          * @param docs A string containing the YAML documents.
          * @return The resource bundle entries.
          */
-        private fun parseDocs(docs: String): Map<String, Any> = parseDocs { Yaml().loadAll(docs) }
+        fun parseDocs(docs: String): Map<String, Any> = parseDocs { Yaml().loadAll(docs) }
 
         /**
          * Parses the YAML documents.
@@ -54,7 +82,7 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
          * @param docs An input stream to read the YAML documents.
          * @return The resource bundle entries.
          */
-        private fun parseDocs(docs: InputStream): Map<String, Any> = parseDocs { Yaml().loadAll(docs) }
+        fun parseDocs(docs: InputStream): Map<String, Any> = parseDocs { Yaml().loadAll(docs) }
 
         /**
          * Parses the YAML documents.
@@ -62,7 +90,7 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
          * @param docs A reader to read the YAML documents.
          * @return The resource bundle entries.
          */
-        private fun parseDocs(docs: Reader): Map<String, Any> = parseDocs { Yaml().loadAll(docs) }
+        fun parseDocs(docs: Reader): Map<String, Any> = parseDocs { Yaml().loadAll(docs) }
 
         /**
          * Parses the YAML documents.
@@ -141,31 +169,6 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
                 parseNode(key = "$key[$itemIndex]", value = itemValue, ancestors = path)
             }
             return strings + items
-        }
-
-    }
-
-    /**
-     * [ResourceBundle.Control] for YAML format.
-     */
-    object Control : ResourceBundle.Control() {
-
-        override fun getFormats(baseName: String): List<String> = listOf("yaml", "yml")
-
-        override fun newBundle(
-                baseName: String,
-                locale: Locale,
-                format: String,
-                loader: ClassLoader,
-                reload: Boolean,
-        ): ResourceBundle? {
-            require(format in getFormats(baseName)) { "Unknown format: $format" }
-            val bundleName = toBundleName(baseName, locale)
-            val resourceName = toResourceName(bundleName, format)
-            val resource = loader.getResource(resourceName) ?: return null
-            val connection = resource.openConnection()
-            if (reload) connection.useCaches = false
-            return connection.getInputStream().use { YamlResourceBundle(it) }
         }
 
     }
