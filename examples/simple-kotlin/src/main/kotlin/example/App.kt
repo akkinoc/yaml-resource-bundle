@@ -3,7 +3,7 @@ package example
 import dev.akkinoc.util.YamlResourceBundle
 import java.util.ResourceBundle
 
-fun main() {
+fun main(vararg args: String) {
 
     // Gets the resource bundle
     // "YamlResourceBundle.Control" is specified for "ResourceBundle.Control"
