@@ -6,6 +6,18 @@ updates:
       interval: daily
     labels:
       - type:enhancement
+  - package-ecosystem: maven
+    directory: /examples/simple-java
+    schedule:
+      interval: daily
+    labels:
+      - type:enhancement
+  - package-ecosystem: maven
+    directory: /examples/simple-kotlin
+    schedule:
+      interval: daily
+    labels:
+      - type:enhancement
   - package-ecosystem: github-actions
     directory: /
     schedule:
