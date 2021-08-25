@@ -20,7 +20,7 @@
 [license]: LICENSE.txt
 [license badge]: https://img.shields.io/github/license/akkinoc/yaml-resource-bundle?color=blue
 
-[Java ResourceBundle] for YAML format.  
+[Java ResourceBundle] for YAML format.
 
 [Java ResourceBundle]: https://docs.oracle.com/javase/8/docs/api/java/util/ResourceBundle.html
 
@@ -34,20 +34,20 @@
 
 ## Dependencies
 
-Depends on:  
+Depends on:
 
 * Java 8, 11 or 15
 * Kotlin 1.5
 * SnakeYAML 1.29
 
-Other versions may also work, but have not been tested.  
+Other versions may also work, but have not been tested.
 
 ## Usage
 
 ### Adding the dependency
 
-The artifact is published on [Maven Central Repository][maven central].  
-If you are using Maven, add the following dependency.  
+The artifact is published on [Maven Central Repository][maven central].
+If you are using Maven, add the following dependency.
 
 ```xml
 <dependency>
@@ -59,13 +59,12 @@ If you are using Maven, add the following dependency.
 
 ### Creating resource files
 
-Create a YAML-formatted resource file on the classpath.  
-Also, create locale-specific resource files as needed.  
+Create a YAML-formatted resource file on the classpath.
+Also, create locale-specific resource files as needed.
 
-For example:  
+For example (resource.yml, resource_en.yml, resource_fr.yml, etc):
 
 ```yaml
-# resource.yml, resource_en.yml, resource_fr.yml, etc
 fruits:
   apple: Apple
   orange: Orange
@@ -78,9 +77,9 @@ colors:
 
 ### Accessing the resource
 
-Access the resource via YamlResourceBundle.  
+Access the resource via YamlResourceBundle.
 
-For example in Java:  
+For example in Java:
 
 ```java
 import dev.akkinoc.util.YamlResourceBundle;
@@ -114,12 +113,12 @@ System.out.println(bundle.keySet());
 
 ## API Reference
 
-Please refer to the [Javadoc][javadoc].  
+Please refer to the [Javadoc][javadoc].
 
-## Release notes
+## Release Notes
 
-Please refer to the [Releases][release] page.  
+Please refer to the [Releases][release] page.
 
 ## License
 
-Licensed under the [Apache License, Version 2.0][license].  
+Licensed under the [Apache License, Version 2.0][license].

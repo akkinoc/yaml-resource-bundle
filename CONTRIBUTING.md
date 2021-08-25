@@ -11,21 +11,21 @@
 [license]: LICENSE.txt
 [license badge]: https://img.shields.io/github/license/akkinoc/yaml-resource-bundle?color=blue
 
-[Bug reports][issues] and [pull requests][pulls] are welcome :)  
-(I may be slow to respond when I'm busy.)  
+[Bug reports][issues] and [pull requests][pulls] are welcome :)
+(I may be slow to respond when I'm busy.)
 
 ## Setup
 
-To setup, run:  
+To setup, run:
 
 ```console
 $ git clone git@github.com:akkinoc/yaml-resource-bundle.git
 $ cd yaml-resource-bundle
 ```
 
-## Building and testing
+## Building and Testing
 
-To build and test, run:  
+To build and test, run:
 
 ```console
 $ mvn clean install
@@ -33,4 +33,4 @@ $ mvn clean install
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the [Apache License, Version 2.0][license].  
+By contributing, you agree that your contributions will be licensed under the [Apache License, Version 2.0][license].
