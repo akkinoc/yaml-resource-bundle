@@ -4,11 +4,8 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
-import io.kotest.matchers.nulls.shouldBeNull
-import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldBeEmpty
-import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.yaml.snakeyaml.error.YAMLException
 import java.util.Locale
@@ -446,75 +443,6 @@ class YamlResourceBundleTest {
         bundle.getString("a").shouldBe("value @a (ja_JP)")
         bundle.getString("b").shouldBe("value @b (ja)")
         bundle.getString("c").shouldBe("value @c")
-    }
-
-    /**
-     * Tests [YamlResourceBundle.Control].
-     */
-    @Nested
-    inner class ControlTest {
-
-        @Test
-        fun `getFormats - Gets the formats`() {
-            val control = YamlResourceBundle.Control
-            control.getFormats("resource").shouldContainExactly("yaml", "yml")
-        }
-
-        @Test
-        fun `newBundle - Constructs a resource bundle`() {
-            val control = YamlResourceBundle.Control
-            val bundle = control.newBundle(
-                    "${this::class.qualifiedName}.resource",
-                    Locale.ROOT,
-                    "yml",
-                    javaClass.classLoader,
-                    false,
-            )
-            bundle.shouldNotBeNull()
-            bundle.getString("a").shouldBe("value @a")
-        }
-
-        @Test
-        fun `newBundle - Returns null if the resource is not found`() {
-            val control = YamlResourceBundle.Control
-            val bundle = control.newBundle(
-                    "${this::class.qualifiedName}.resource",
-                    Locale.JAPAN,
-                    "yml",
-                    javaClass.classLoader,
-                    false,
-            )
-            bundle.shouldBeNull()
-        }
-
-        @Test
-        fun `newBundle - Reloads a resource bundle`() {
-            val control = YamlResourceBundle.Control
-            val bundle = control.newBundle(
-                    "${this::class.qualifiedName}.resource",
-                    Locale.ROOT,
-                    "yml",
-                    javaClass.classLoader,
-                    true,
-            )
-            bundle.shouldNotBeNull()
-            bundle.getString("a").shouldBe("value @a")
-        }
-
-        @Test
-        fun `newBundle - Fails if the format is unknown`() {
-            val control = YamlResourceBundle.Control
-            shouldThrow<IllegalArgumentException> {
-                control.newBundle(
-                        "${this::class.qualifiedName}.resource",
-                        Locale.getDefault(),
-                        "unknown",
-                        javaClass.classLoader,
-                        false,
-                )
-            }
-        }
-
     }
 
 }
