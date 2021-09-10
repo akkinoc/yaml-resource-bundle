@@ -4,7 +4,7 @@ import dev.akkinoc.util.YamlResourceBundle;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-public class App {
+public class Application {
 
     public static void main(String... args) {
 
