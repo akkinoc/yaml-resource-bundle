@@ -23,7 +23,7 @@ fun main(vararg args: String) {
     println(bundle.getStringArray("colors").contentToString())
     // => "[Red, Orange, Purple]" or localized values
 
-    // Gets all the keys
+    // Gets the all keys
     println(bundle.keySet())
     // => "[fruits.apple, fruits.orange, fruits.grape, colors, colors[0], colors[1], colors[2]]" (not sorted)
 

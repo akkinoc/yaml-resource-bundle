@@ -26,7 +26,7 @@ public class Application {
         System.out.println(Arrays.toString(bundle.getStringArray("colors")));
         // => "[Red, Orange, Purple]" or localized values
 
-        // Gets all the keys
+        // Gets the all keys
         System.out.println(bundle.keySet());
         // => "[fruits.apple, fruits.orange, fruits.grape, colors, colors[0], colors[1], colors[2]]" (not sorted)
 
