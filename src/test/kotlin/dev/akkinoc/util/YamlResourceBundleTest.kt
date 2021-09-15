@@ -45,7 +45,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `constructor - Constructs an instance from an empty documents`() {
+    fun `constructor - Constructs an instance from an empty document`() {
         val docs = ""
         val bundle = YamlResourceBundle(docs)
         bundle.keySet().shouldBeEmpty()
@@ -70,7 +70,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the scalar values`() {
+    fun `handleGetObject - Gets scalar values`() {
         val docs = """
             boolean: true
             int: 1234
@@ -93,7 +93,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the map values`() {
+    fun `handleGetObject - Gets map values`() {
         val docs = """
             map:
               a: value @map.a
@@ -115,7 +115,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the map values nested in the map`() {
+    fun `handleGetObject - Gets map values nested in a map`() {
         val docs = """
             nested:
               map:
@@ -131,7 +131,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the map values nested in the list`() {
+    fun `handleGetObject - Gets map values nested in a list`() {
         val docs = """
             nested:
               - a: value @nested[0].a
@@ -150,7 +150,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the list values`() {
+    fun `handleGetObject - Gets list values`() {
         val docs = """
             list:
               - value @list[0]
@@ -174,7 +174,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the list values nested in the map`() {
+    fun `handleGetObject - Gets list values nested in a map`() {
         val docs = """
             nested:
               list:
@@ -191,7 +191,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the list values nested in the list`() {
+    fun `handleGetObject - Gets list values nested in a list`() {
         val docs = """
             nested:
               - - value @nested[0][0]
@@ -215,7 +215,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the alias values`() {
+    fun `handleGetObject - Gets alias values`() {
         val docs = """
             scalar: &SCALAR value @scalar
             alias-scalar: *SCALAR
@@ -251,7 +251,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Ignores the recursive alias values`() {
+    fun `handleGetObject - Ignores recursive alias values`() {
         val docs = """
             map: &MAP
               a: value @map.a
@@ -273,7 +273,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Gets the values in multiple documents`() {
+    fun `handleGetObject - Gets values in multiple documents`() {
         val docs = """
             a: value @a
             ---
@@ -348,7 +348,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Overwrite the existing key with a null value`() {
+    fun `handleGetObject - Overwrite existing keys with null values`() {
         val docs = """
             scalar: value @scalar (1)
             scalar: ~
@@ -375,7 +375,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `handleGetObject - Overwrite the existing key with a null value across multiple documents`() {
+    fun `handleGetObject - Overwrite existing keys with null values across multiple documents`() {
         val docs = """
             scalar: value @scalar (1)
             map:
@@ -406,7 +406,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `getBundle - Gets the resource bundle in yaml format`() {
+    fun `getBundle - Gets a resource bundle in yaml format`() {
         val bundle = ResourceBundle.getBundle(
                 "${this::class.qualifiedName}.yaml",
                 YamlResourceBundle.Control,
@@ -415,7 +415,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `getBundle - Gets the resource bundle in yml format`() {
+    fun `getBundle - Gets a resource bundle in yml format`() {
         val bundle = ResourceBundle.getBundle(
                 "${this::class.qualifiedName}.yml",
                 YamlResourceBundle.Control,
@@ -434,7 +434,7 @@ class YamlResourceBundleTest {
     }
 
     @Test
-    fun `getBundle - Gets the localized resource bundle`() {
+    fun `getBundle - Gets a localized resource bundle`() {
         val bundle = ResourceBundle.getBundle(
                 "${this::class.qualifiedName}.localized",
                 Locale.JAPAN,
