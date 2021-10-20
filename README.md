@@ -40,8 +40,6 @@ Depends on:
 * Kotlin 1.5
 * SnakeYAML 1.29
 
-Other versions may also work, but have not been tested.
-
 ## Usage
 
 ### Adding the dependency
