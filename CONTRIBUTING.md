@@ -12,7 +12,6 @@
 [license badge]: https://img.shields.io/github/license/akkinoc/yaml-resource-bundle?color=blue
 
 [Bug reports][issues] and [pull requests][pulls] are welcome :)
-(I may be slow to respond when I'm busy.)
 
 ## Setup
 
