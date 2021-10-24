@@ -42,7 +42,7 @@ Depends on:
 
 ## Usage
 
-### Adding the dependency
+### Adding the Dependency
 
 The artifact is published on [Maven Central Repository][maven central].
 If you are using Maven, add the following dependency.
@@ -55,7 +55,7 @@ If you are using Maven, add the following dependency.
 </dependency>
 ```
 
-### Creating resource files
+### Creating Resource Files
 
 Create a YAML-formatted resource file on the classpath.
 Also, create locale-specific resource files as needed.
@@ -73,7 +73,7 @@ colors:
   - Purple
 ```
 
-### Accessing the resource
+### Accessing the Resource
 
 Access the resource via YamlResourceBundle.
 
