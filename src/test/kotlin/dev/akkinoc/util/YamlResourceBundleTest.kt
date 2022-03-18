@@ -81,8 +81,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("boolean", "int", "double", "string", "empty")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("boolean", "int", "double", "string", "empty")
         bundle.getObject("boolean").shouldBe(true)
         bundle.getObject("int").shouldBe(1234)
         bundle.getObject("double").shouldBe(0.1234)
@@ -105,8 +105,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("map.a", "map.b")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("map.a", "map.b")
         bundle.getString("map.a").shouldBe("value @map.a")
         bundle.getString("map.b").shouldBe("value @map.b")
         shouldThrow<MissingResourceException> { bundle.getObject("empty") }
@@ -124,8 +124,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("nested.map.a", "nested.map.b")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("nested.map.a", "nested.map.b")
         bundle.getString("nested.map.a").shouldBe("value @nested.map.a")
         bundle.getString("nested.map.b").shouldBe("value @nested.map.b")
     }
@@ -141,8 +141,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("nested[0].a", "nested[0].b", "nested[1].a", "nested[1].b")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("nested[0].a", "nested[0].b", "nested[1].a", "nested[1].b")
         bundle.getString("nested[0].a").shouldBe("value @nested[0].a")
         bundle.getString("nested[0].b").shouldBe("value @nested[0].b")
         bundle.getString("nested[1].a").shouldBe("value @nested[1].a")
@@ -162,8 +162,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("list", "list[0]", "list[1]")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("list", "list[0]", "list[1]")
         bundle.getStringArray("list").shouldContainExactly("value @list[0]", "value @list[1]")
         bundle.getString("list[0]").shouldBe("value @list[0]")
         bundle.getString("list[1]").shouldBe("value @list[1]")
@@ -183,8 +183,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("nested.list", "nested.list[0]", "nested.list[1]")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("nested.list", "nested.list[0]", "nested.list[1]")
         bundle.getStringArray("nested.list").shouldContainExactly("value @nested.list[0]", "value @nested.list[1]")
         bundle.getString("nested.list[0]").shouldBe("value @nested.list[0]")
         bundle.getString("nested.list[1]").shouldBe("value @nested.list[1]")
@@ -201,11 +201,11 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder(
-                        "nested[0]", "nested[0][0]", "nested[0][1]",
-                        "nested[1]", "nested[1][0]", "nested[1][1]",
-                )
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder(
+                "nested[0]", "nested[0][0]", "nested[0][1]",
+                "nested[1]", "nested[1][0]", "nested[1][1]",
+            )
         bundle.getStringArray("nested[0]").shouldContainExactly("value @nested[0][0]", "value @nested[0][1]")
         bundle.getString("nested[0][0]").shouldBe("value @nested[0][0]")
         bundle.getString("nested[0][1]").shouldBe("value @nested[0][1]")
@@ -230,12 +230,12 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder(
-                        "scalar", "alias-scalar",
-                        "map.a", "map.b", "alias-map.a", "alias-map.b",
-                        "list", "list[0]", "list[1]", "alias-list", "alias-list[0]", "alias-list[1]",
-                )
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder(
+                "scalar", "alias-scalar",
+                "map.a", "map.b", "alias-map.a", "alias-map.b",
+                "list", "list[0]", "list[1]", "alias-list", "alias-list[0]", "alias-list[1]",
+            )
         bundle.getString("scalar").shouldBe("value @scalar")
         bundle.getString("alias-scalar").shouldBe("value @scalar")
         bundle.getString("map.a").shouldBe("value @map.a")
@@ -264,8 +264,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("map.a", "map.b", "list[0]", "list[1]")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("map.a", "map.b", "list[0]", "list[1]")
         bundle.getString("map.a").shouldBe("value @map.a")
         bundle.getString("map.b").shouldBe("value @map.b")
         bundle.getString("list[0]").shouldBe("value @list[0]")
@@ -281,8 +281,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("a", "b")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("a", "b")
         bundle.getString("a").shouldBe("value @a")
         bundle.getString("b").shouldBe("value @b")
     }
@@ -305,8 +305,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("scalar", "map.a", "map.b", "list", "list[0]", "list[1]")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("scalar", "map.a", "map.b", "list", "list[0]", "list[1]")
         bundle.getString("scalar").shouldBe("value @scalar (2)")
         bundle.getString("map.a").shouldBe("value @map.a (2)")
         bundle.getString("map.b").shouldBe("value @map.b (2)")
@@ -337,8 +337,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldContainExactlyInAnyOrder("scalar", "map.a", "map.b", "list", "list[0]", "list[1]")
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldContainExactlyInAnyOrder("scalar", "map.a", "map.b", "list", "list[0]", "list[1]")
         bundle.getString("scalar").shouldBe("value @scalar (2)")
         bundle.getString("map.a").shouldBe("value @map.a (2)")
         bundle.getString("map.b").shouldBe("value @map.b (2)")
@@ -365,8 +365,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldBeEmpty()
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldBeEmpty()
         shouldThrow<MissingResourceException> { bundle.getObject("scalar") }
         shouldThrow<MissingResourceException> { bundle.getObject("map.a") }
         shouldThrow<MissingResourceException> { bundle.getObject("map.b") }
@@ -396,8 +396,8 @@ class YamlResourceBundleTest {
         """.trimIndent()
         val bundle = YamlResourceBundle(docs)
         bundle.keySet()
-                .shouldContainExactlyInAnyOrder(bundle.keys.toList())
-                .shouldBeEmpty()
+            .shouldContainExactlyInAnyOrder(bundle.keys.toList())
+            .shouldBeEmpty()
         shouldThrow<MissingResourceException> { bundle.getObject("scalar") }
         shouldThrow<MissingResourceException> { bundle.getObject("map.a") }
         shouldThrow<MissingResourceException> { bundle.getObject("map.b") }
@@ -408,8 +408,8 @@ class YamlResourceBundleTest {
     @Test
     fun `getBundle - Gets a resource bundle in yaml format`() {
         val bundle = ResourceBundle.getBundle(
-                "${this::class.qualifiedName}.yaml",
-                YamlResourceBundle.Control,
+            "${this::class.qualifiedName}.yaml",
+            YamlResourceBundle.Control,
         )
         bundle.getString("yaml").shouldBe("value @yaml")
     }
@@ -417,8 +417,8 @@ class YamlResourceBundleTest {
     @Test
     fun `getBundle - Gets a resource bundle in yml format`() {
         val bundle = ResourceBundle.getBundle(
-                "${this::class.qualifiedName}.yml",
-                YamlResourceBundle.Control,
+            "${this::class.qualifiedName}.yml",
+            YamlResourceBundle.Control,
         )
         bundle.getString("yml").shouldBe("value @yml")
     }
@@ -426,8 +426,8 @@ class YamlResourceBundleTest {
     @Test
     fun `getBundle - Prefers the yaml format if yaml and yml formats exist`() {
         val bundle = ResourceBundle.getBundle(
-                "${this::class.qualifiedName}.yaml+yml",
-                YamlResourceBundle.Control,
+            "${this::class.qualifiedName}.yaml+yml",
+            YamlResourceBundle.Control,
         )
         bundle.getString("yaml").shouldBe("value @yaml")
         shouldThrow<MissingResourceException> { bundle.getString("yml") }
@@ -436,9 +436,9 @@ class YamlResourceBundleTest {
     @Test
     fun `getBundle - Gets a localized resource bundle`() {
         val bundle = ResourceBundle.getBundle(
-                "${this::class.qualifiedName}.localized",
-                Locale.JAPAN,
-                YamlResourceBundle.Control,
+            "${this::class.qualifiedName}.localized",
+            Locale.JAPAN,
+            YamlResourceBundle.Control,
         )
         bundle.getString("a").shouldBe("value @a (ja_JP)")
         bundle.getString("b").shouldBe("value @b (ja)")

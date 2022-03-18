@@ -46,11 +46,11 @@ class YamlResourceBundle private constructor(private val entries: Map<String, An
         override fun getFormats(baseName: String): List<String> = listOf("yaml", "yml")
 
         override fun newBundle(
-                baseName: String,
-                locale: Locale,
-                format: String,
-                loader: ClassLoader,
-                reload: Boolean,
+            baseName: String,
+            locale: Locale,
+            format: String,
+            loader: ClassLoader,
+            reload: Boolean,
         ): ResourceBundle? {
             require(format in getFormats(baseName)) { "Unknown format: $format" }
             val bundleName = toBundleName(baseName, locale)
