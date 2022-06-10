@@ -40,7 +40,7 @@
 Depends on:
 
 * Java 8, 11 or 17
-* Kotlin 1.6
+* Kotlin 1.7
 * SnakeYAML 1.29
 
 ## Usage
