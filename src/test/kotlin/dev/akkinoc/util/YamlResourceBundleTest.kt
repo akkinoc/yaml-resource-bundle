@@ -203,8 +203,12 @@ class YamlResourceBundleTest {
         bundle.keySet()
             .shouldContainExactlyInAnyOrder(bundle.keys.toList())
             .shouldContainExactlyInAnyOrder(
-                "nested[0]", "nested[0][0]", "nested[0][1]",
-                "nested[1]", "nested[1][0]", "nested[1][1]",
+                "nested[0]",
+                "nested[0][0]",
+                "nested[0][1]",
+                "nested[1]",
+                "nested[1][0]",
+                "nested[1][1]",
             )
         bundle.getStringArray("nested[0]").shouldContainExactly("value @nested[0][0]", "value @nested[0][1]")
         bundle.getString("nested[0][0]").shouldBe("value @nested[0][0]")
@@ -232,9 +236,18 @@ class YamlResourceBundleTest {
         bundle.keySet()
             .shouldContainExactlyInAnyOrder(bundle.keys.toList())
             .shouldContainExactlyInAnyOrder(
-                "scalar", "alias-scalar",
-                "map.a", "map.b", "alias-map.a", "alias-map.b",
-                "list", "list[0]", "list[1]", "alias-list", "alias-list[0]", "alias-list[1]",
+                "scalar",
+                "alias-scalar",
+                "map.a",
+                "map.b",
+                "alias-map.a",
+                "alias-map.b",
+                "list",
+                "list[0]",
+                "list[1]",
+                "alias-list",
+                "alias-list[0]",
+                "alias-list[1]",
             )
         bundle.getString("scalar").shouldBe("value @scalar")
         bundle.getString("alias-scalar").shouldBe("value @scalar")
