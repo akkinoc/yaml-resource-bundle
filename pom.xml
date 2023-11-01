@@ -8,7 +8,7 @@
 
     <groupId>dev.akkinoc.util</groupId>
     <artifactId>yaml-resource-bundle</artifactId>
-    <version>2.11.1</version>
+    <version>2.11.2-SNAPSHOT</version>
 
     <name>yaml-resource-bundle</name>
     <description>Java ResourceBundle for YAML format.</description>
