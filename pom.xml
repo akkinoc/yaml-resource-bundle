@@ -246,7 +246,7 @@
             <plugin>
                 <groupId>com.github.ozsie</groupId>
                 <artifactId>detekt-maven-plugin</artifactId>
-                <version>1.23.7</version>
+                <version>1.23.8</version>
                 <dependencies>
                     <dependency>
                         <groupId>io.gitlab.arturbosch.detekt</groupId>
@@ -256,7 +256,7 @@
                     <dependency>
                         <groupId>io.gitlab.arturbosch.detekt</groupId>
                         <artifactId>detekt-formatting</artifactId>
-                        <version>1.23.7</version>
+                        <version>1.23.8</version>
                     </dependency>
                 </dependencies>
                 <configuration>
