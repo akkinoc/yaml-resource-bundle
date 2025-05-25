@@ -27,7 +27,6 @@ updates:
     labels:
       - type:dependencies
     milestone: 2
-    groups:
-      kotlin:
-        patterns:
-          - kotlin.version
+    ignore:
+      - dependency-name: kotlin.version
+        versions: [ "[2.0,)" ]
