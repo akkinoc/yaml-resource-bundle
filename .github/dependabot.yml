@@ -28,5 +28,5 @@ updates:
       - type:dependencies
     milestone: 2
     ignore:
-      - dependency-name: kotlin.version
+      - dependency-name: org.jetbrains.kotlin:*
         versions: [ "[2.0,)" ]
