@@ -32,4 +32,3 @@ updates:
         patterns:
           - kotlin.version
           - org.jetbrains.kotlin:*
-          - org.jetbrains.kotlin.*
