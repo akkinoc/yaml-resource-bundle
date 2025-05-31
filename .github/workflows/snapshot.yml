@@ -24,7 +24,6 @@ jobs:
           server-id: central
           server-username: MAVEN_CENTRAL_USERNAME
           server-password: MAVEN_CENTRAL_PASSWORD
-      - run: cat ~/.m2/settings.xml
       - name: Get the project version
         run: echo PROJECT_VERSION=$(mvn -B -Dexpression=project.version -DforceStdout -q help:evaluate) >>$GITHUB_ENV
       - name: Snapshot the project
