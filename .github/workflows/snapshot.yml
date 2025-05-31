@@ -12,9 +12,6 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       MAVEN_ARGS: -B --color always
-      MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-      MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-      MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
     steps:
       - name: Checkout the Git repository
         uses: actions/checkout@v4.2.2
@@ -34,3 +31,7 @@ jobs:
       - name: Snapshot the project
         run: mvn -Prelease clean deploy
         if: endsWith(env.PROJECT_VERSION, '-SNAPSHOT')
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
