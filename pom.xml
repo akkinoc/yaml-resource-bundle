@@ -194,15 +194,6 @@
             <plugin>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>3.4.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addBuildEnvironmentEntries>true</addBuildEnvironmentEntries>
-                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                        </manifest>
-                    </archive>
-                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
