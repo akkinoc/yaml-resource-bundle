@@ -58,7 +58,6 @@
         <kotlin.compiler.jvmTarget>${java.version}</kotlin.compiler.jvmTarget>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <gpg.skip>true</gpg.skip>
     </properties>
 
     <dependencies>
@@ -255,20 +254,21 @@
                 </executions>
             </plugin>
             <plugin>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>3.1.4</version>
+            </plugin>
+            <plugin>
                 <artifactId>maven-gpg-plugin</artifactId>
                 <version>3.2.7</version>
                 <executions>
                     <execution>
                         <id>sign</id>
+                        <phase>deploy</phase>
                         <goals>
                             <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-install-plugin</artifactId>
-                <version>3.1.4</version>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.central</groupId>
