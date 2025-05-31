@@ -18,7 +18,7 @@
 To set up, run:
 
 ```console
-$ git clone git@github.com:akkinoc/yaml-resource-bundle.git
+$ git clone https://github.com/akkinoc/yaml-resource-bundle.git
 $ cd yaml-resource-bundle
 ```
 
