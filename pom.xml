@@ -5,7 +5,7 @@
 
     <groupId>dev.akkinoc.util</groupId>
     <artifactId>yaml-resource-bundle</artifactId>
-    <version>2.14.1</version>
+    <version>2.14.2-SNAPSHOT</version>
 
     <name>yaml-resource-bundle</name>
     <description>Java ResourceBundle for YAML format.</description>
@@ -36,7 +36,7 @@
         <url>https://github.com/akkinoc/yaml-resource-bundle</url>
         <connection>scm:git:git@github.com:akkinoc/yaml-resource-bundle.git</connection>
         <developerConnection>scm:git:git@github.com:akkinoc/yaml-resource-bundle.git</developerConnection>
-      <tag>yaml-resource-bundle-2.14.1</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <issueManagement>
