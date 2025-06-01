@@ -90,6 +90,9 @@
             <plugin>
                 <artifactId>maven-help-plugin</artifactId>
                 <version>3.5.1</version>
+                <configuration>
+                    <forceStdout>true</forceStdout>
+                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-clean-plugin</artifactId>
