@@ -35,7 +35,7 @@
     <scm>
         <url>https://github.com/akkinoc/yaml-resource-bundle</url>
         <connection>scm:git:https://github.com/akkinoc/yaml-resource-bundle.git</connection>
-        <developerConnection>${project.scm.connection}</developerConnection>
+        <developerConnection>scm:git:git@github.com:akkinoc/yaml-resource-bundle.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
