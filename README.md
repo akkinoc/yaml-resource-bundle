@@ -39,7 +39,7 @@
 
 Depends on:
 
-* Java 17 or 21
+* Java 17, 21, or 25
 * Kotlin 2.3
 * SnakeYAML 2.6
 
