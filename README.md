@@ -8,8 +8,8 @@
 [![license badge]][license]
 [![sponsor badge]][sponsor]
 
-[maven central]: https://maven-badges.herokuapp.com/maven-central/dev.akkinoc.util/yaml-resource-bundle
-[maven central badge]: https://maven-badges.herokuapp.com/maven-central/dev.akkinoc.util/yaml-resource-bundle/badge.svg
+[maven central]: https://central.sonatype.com/artifact/dev.akkinoc.util/yaml-resource-bundle
+[maven central badge]: https://img.shields.io/maven-central/v/dev.akkinoc.util/yaml-resource-bundle?color=brightgreen
 [javadoc]: https://javadoc.io/doc/dev.akkinoc.util/yaml-resource-bundle
 [javadoc badge]: https://javadoc.io/badge2/dev.akkinoc.util/yaml-resource-bundle/javadoc.svg
 [release]: https://github.com/akkinoc/yaml-resource-bundle/releases
