@@ -1,0 +1,24 @@
+[versions]
+java = "17"
+java-additional = "21,25"
+kotlin = "2.3.21"
+detekt = "2.0.0-alpha.3"
+dokka = "2.2.0"
+publish = "0.36.0"
+release = "1.21.1"
+snakeyaml = "2.6"
+junit = "6.0.3"
+kotest = "6.1.11"
+
+[plugins]
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
+dokka = { id = "org.jetbrains.dokka-javadoc", version.ref = "dokka" }
+publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
+release = { id = "pl.allegro.tech.build.axion-release", version.ref = "release" }
+
+[libraries]
+snakeyaml = { module = "org.yaml:snakeyaml", version.ref = "snakeyaml" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+kotest-assertions = { module = "io.kotest:kotest-assertions-core-jvm", version.ref = "kotest" }
+detekt-rules-ktlint = { module = "dev.detekt:detekt-rules-ktlint-wrapper", version.ref = "detekt" }
