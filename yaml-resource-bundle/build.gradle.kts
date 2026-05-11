@@ -3,9 +3,10 @@ import com.vanniktech.maven.publish.KotlinJvm
 import com.vanniktech.maven.publish.SourcesJar
 
 plugins {
+    `java-library`
+    jacoco
     alias(libs.plugins.kotlin)
     alias(libs.plugins.detekt)
-    jacoco
     alias(libs.plugins.dokka)
     alias(libs.plugins.publish)
 }
