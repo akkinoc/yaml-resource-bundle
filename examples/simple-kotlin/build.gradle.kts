@@ -4,7 +4,7 @@ plugins {
 }
 
 dependencies {
-    implementation("dev.akkinoc.util:yaml-resource-bundle")
+    implementation("dev.akkinoc.util:yaml-resource-bundle:$version")
 }
 
 application {
