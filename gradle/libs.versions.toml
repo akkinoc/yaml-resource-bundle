@@ -8,7 +8,7 @@ publish = "0.36.0"
 release = "1.21.2"
 snakeyaml = "2.6"
 junit = "6.1.0"
-kotest = "6.2.0"
+kotest = "6.2.1"
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
