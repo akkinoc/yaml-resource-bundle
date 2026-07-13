@@ -7,7 +7,7 @@ dokka = "2.2.0"
 publish = "0.37.0"
 release = "1.21.2"
 snakeyaml = "2.6"
-junit = "6.1.1"
+junit = "6.1.2"
 kotest = "6.2.2"
 
 [plugins]
