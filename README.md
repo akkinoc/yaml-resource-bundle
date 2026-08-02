@@ -65,7 +65,7 @@ Also, create locale-specific resource files as needed.
 
 For example (resource.yml, resource_en.yml, resource_fr.yml, etc):
 
-```yaml
+```yml
 fruits:
   apple: Apple
   orange: Orange
