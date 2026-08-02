@@ -29,19 +29,19 @@
 
 ## Features
 
-* Accesses YAML-formatted resources via ResourceBundle.
-* Supports locale-specific resources according to the ResourceBundle specification.
-* Supports YAML values nested in a map or list.
-* Supports YAML anchors and aliases indicated by `&` and `*`.
-* Supports multiple YAML documents separated by `---`.
+- Accesses YAML-formatted resources via ResourceBundle.
+- Supports locale-specific resources according to the ResourceBundle specification.
+- Supports YAML values nested in a map or list.
+- Supports YAML anchors and aliases indicated by `&` and `*`.
+- Supports multiple YAML documents separated by `---`.
 
 ## Dependencies
 
 Depends on:
 
-* Java 17, 21, or 25
-* Kotlin 2.3
-* SnakeYAML 2.6
+- Java 17, 21, or 25
+- Kotlin 2.3
+- SnakeYAML 2.6
 
 ## Usage
 
