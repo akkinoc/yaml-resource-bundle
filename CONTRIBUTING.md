@@ -17,17 +17,17 @@
 
 To set up, run:
 
-```console
-$ git clone https://github.com/akkinoc/yaml-resource-bundle.git
-$ cd yaml-resource-bundle
+```sh
+git clone https://github.com/akkinoc/yaml-resource-bundle.git
+cd yaml-resource-bundle
 ```
 
 ## Building and Testing
 
 To build and test, run:
 
-```console
-$ mvn clean install
+```sh
+mvn clean install
 ```
 
 ## License
